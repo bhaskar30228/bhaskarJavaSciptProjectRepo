@@ -1,0 +1,22 @@
+<input type="date" id="dob">
+<button id="but" disabled>Submit</button>
+
+<script>
+    const dob = document.querySelector("#dob");
+    const button = document.querySelector("#but");
+
+    // Initially disable button and set cursor to not-allowed
+    button.disabled = true;
+    button.style.cursor = "not-allowed";
+
+    // Enable button when a date is selected
+    dob.addEventListener("input", function () {
+        if (dob.value !== "") {
+            button.disabled = false;
+            button.style.cursor = "pointer";
+        } else {
+            button.disabled = true;
+            button.style.cursor = "not-allowed";
+        }
+    });
+</script>

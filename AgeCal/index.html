@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #9ac6ff, #fad0c4);
+        }
+        .container {
+            background: rgb(170, 198, 203);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+        }
+        h2 {
+            color: #000000;
+        }
+        .input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        input {
+            padding: 12px;
+            margin: 15px 0;
+            width: 100%;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .input-container i {
+            position: absolute;
+            right: 10px;
+            color: #000;
+        }
+        button {
+            padding: 12px 20px;
+            background: #ff758c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: not-allowed;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: #ff5e73;
+        }
+        p {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #555;
+        }
+        .para{
+            font-size: 25px;
+            color: black;
+            font-weight: 500;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Age Calculator</h1>
+        <div class="input-container">
+            <input type="date" id="dob">
+        </div>
+        <div class="input" id="input">
+            <button  id="but" >Calculate Age</button>
+        </div>
+        <p id="print">Your age will be displayed here.</p>
+    </div>
+    <script src="file.js"></script>
+</body>
+</html>
