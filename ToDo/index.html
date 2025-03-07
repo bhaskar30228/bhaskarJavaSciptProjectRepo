@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f5;
+            font-family: Arial, sans-serif;
+        }
+
+        .todo-container {
+            background: #d1cece;
+            width: 400px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .todo-container h1 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .todo-container input {
+            width: calc(100% - 50px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            
+        }
+
+        .todo-container button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .todo-container button:hover {
+            background-color: #e56247;
+        }
+
+        .todo-list {
+            margin-top: 20px;
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .todo-list li {
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    position: relative;
+    background-color: #fff; /* Default white background */
+    border: 1px solid #ccc; /* Border for better visibility */
+    border-radius: 5px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transitions for hover and click effects */
+}
+.todo-list li::before {
+    content: ""; /* Default empty content */
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #93b591; /* Default background */
+    margin-right: 20px;
+    transition: all 0.3s ease; /* Smooth transition */
+    text-align: center; /* Center alignment */
+    line-height: 20px; /* Ensure checkmark is vertically centered */
+    font-size: 1.2rem; /* Checkmark size */
+    color: transparent; /* Initially transparent */
+    text-decoration: none; /* Prevent line-through on the pseudo-element */
+    vertical-align: middle; /* Align properly with text */
+}
+
+.todo-list li.completed::before {
+    content: '\2713'; /* Checkmark symbol */
+    color: #2c6f4f; /* Green color for checkmark */
+    background-color: #e0f7e9; /* Light green background */
+    text-decoration: none; /* Ensure no line-through on the pseudo-element */
+}
+
+.todo-list li.completed {
+    
+    background-color: #e0f7e9; /* Light green background */
+    color: #2c6f4f; /* Darker green text */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.todo-list li {
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    position: relative;
+    background-color: #fff; /* Default white background */
+    border: 1px solid #ccc; /* Border for better visibility */
+    border-radius: 5px; /* Rounded corners */
+    transition: all 0.3s ease; /* Smooth transitions for hover and click effects */
+}
+
+.todo-list li:hover {
+    background-color: #f4f4f4; /* Slightly darker background on hover */
+    cursor: pointer; /* Indicate interactivity */
+}
+
+ul li span {
+    position: absolute;
+    right: 10px;
+    font-size: 22px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #ff4d4d; /* Red for delete icon */
+    transition: background 0.3s ease, color 0.3s ease; /* Smooth transitions */
+}
+
+ul li span:hover {
+    background: #ff4d4d; /* Red background on hover */
+    color: #fff; /* White color for the delete icon */
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="todo-container">
+        <h1>To-Do List</h1>
+        <input type="text" id="todo-input" placeholder="Add a new task">
+        <button id="add-button">Add</button>
+        <ul class="todo-list" id="todo-list">
+        </ul>
+    </div>
+</body>
+<script src="script.js">
+    
+</script>
+</html>
