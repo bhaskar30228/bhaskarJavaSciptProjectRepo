@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slot Machine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #222;
+            color: white;
+        }
+        .slot-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .slot {
+            width: 80px;
+            height: 80px;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            margin: 5px;
+            background: #333;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #f39c12;
+            border: none;
+            color: white;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+    <h1>Slot Machine</h1>
+    <p>Balance: $<span id="balance">100</span></p>
+    <div class="slot-container">
+        <div class="slot" id="slot1">?</div>
+        <div class="slot" id="slot2">?</div>
+        <div class="slot" id="slot3">?</div>
+    </div>
+    <div class="controls">
+        <label>Bet Amount: $<input type="number" id="bet" value="5" min="5"></label>
+        <button onclick="spinSlots()">Spin</button>
+    </div>
+    <p id="message"></p>
+    <script>
+        let balance = 100;
+        const symbols = ["A", "B", "C", "D"];
+        const symbolValues = {"A": 5, "B": 4, "C": 3, "D": 2};
+        
+        function spinSlots() {
+            let bet = parseFloat(document.getElementById("bet").value);
+            if (bet <= 0 || bet > balance) {
+                document.getElementById("message").textContent = "Invalid bet amount!";
+                return;
+            }
+            
+            balance -= bet;
+            document.getElementById("balance").textContent = balance;
+            
+            let results = [
+                symbols[Math.floor(Math.random() * symbols.length)],
+                symbols[Math.floor(Math.random() * symbols.length)],
+                symbols[Math.floor(Math.random() * symbols.length)]
+            ];
+            
+            document.getElementById("slot1").textContent = results[0];
+            document.getElementById("slot2").textContent = results[1];
+            document.getElementById("slot3").textContent = results[2];
+            
+            if (results[0] === results[1] && results[1] === results[2]) {
+                let winnings = bet * symbolValues[results[0]];
+                balance += winnings;
+                document.getElementById("message").textContent = "You won $" + winnings + "!";
+            } else {
+                document.getElementById("message").textContent = "You lost. Try again!";
+            }
+            
+            document.getElementById("balance").textContent = balance;
+            
+            if (balance <= 0) {
+                document.getElementById("message").textContent = "Game Over! Reload to play again.";
+            }
+        }
+    </script>
+</body>
+</html>
